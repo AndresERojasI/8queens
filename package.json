@@ -1,0 +1,28 @@
+{
+  "name": "8-queens",
+  "version": "1.0.0",
+  "description": "This is my take on the 8Queens problem using JS",
+  "main": "8queens.js",
+  "type": "module",
+  "engines" : { "node" : ">=14.*" },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node 8queens.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndresERojasI/8queens.git"
+  },
+  "keywords": [
+    "8queens",
+    "algorithm",
+    "problem",
+    "solving"
+  ],
+  "author": "Andres Rojas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndresERojasI/8queens/issues"
+  },
+  "homepage": "https://github.com/AndresERojasI/8queens#readme"
+}
