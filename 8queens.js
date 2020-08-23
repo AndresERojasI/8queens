@@ -1,31 +1,10 @@
-const createMatrix = size => {
-    const matrix = new Array(size);
+import {
+    createMatrix,
+    printMatrix
+} from "./utils.js";
 
-    for (let i = 0; i < size; i++) {
-        matrix[i] = new Array(8).fill(0);
-    }
-
-    return matrix;
-}
-
-const matrix = createMatrix(8);
-
-const printMatrix = matrix => {
-    matrix.forEach(columns => {
-        columns.forEach(row => {
-            if(row === 1) {
-                process.stdout.write(" Q ");
-            } else if(row === -1){
-                process.stdout.write(` -1 `);
-            } else{
-                process.stdout.write(` X `);
-            }
-            
-        });
-
-        process.stdout.write("\n");
-    });
-}
+const chessBoardSize = 8;
+const matrix = createMatrix(chessBoardSize);
 
 const disableVectors = (x, y) => {
     // Disable up vector
@@ -56,10 +35,38 @@ const disableVectors = (x, y) => {
         }
     }
 
+    // Disable the up-right vector
+    if(y < 7 && x < 7){
+        for(let i = 0; (x - i > 0) && (y + i < 8); i++){
+            matrix[x - i][y + i] = -1;
+        }
+    }
+
+    // Disable the down-right vector
+    if(x < 7 & y < 7){
+        for(let i = 0; (x + i < 8) && (y + i < 8); i++){
+            matrix[x + i][y + i] = -1;
+        }
+    }
+
+    // Disable the left-up vector
+    if(x > 0 && y > 0){
+        for(let i = 0; (x - i > 0) && (y - i > 0); i++){
+            matrix[x - i][y - i] = -1;
+        }
+    }
+
+    // Disable the left-down vector
+    if(x < 7 && y > 0){
+        for(let i = 0; (x + i > 0) && (y - i > 0); i++){
+            matrix[x + i][y - i] = -1;
+        }
+    }    
     
 }
 
 
+// Initial tests to try out the vector disabling
 matrix[4][4] = 1;
 disableVectors(4, 4);
 printMatrix(matrix);
