@@ -7,7 +7,8 @@
   "engines" : { "node" : ">=14.*" },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node 8queens.js"
+    "v1": "node 8queens.js",
+    "v2": "node 8queens_v2.js"
   },
   "repository": {
     "type": "git",
